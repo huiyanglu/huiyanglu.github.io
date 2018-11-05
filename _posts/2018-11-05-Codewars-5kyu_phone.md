@@ -29,7 +29,7 @@ Could you help John with a program that, given the lines of his phone book and a
 
 ##### Examples:
 
-    s = "/+1-541-754-3010 156 Alphand_St. <J Steeve>\n 133, Green, Rd. <E Kustur> NY-56423 ;+1-541-914-3010!\n"
+s = "/+1-541-754-3010 156 Alphand_St. <J Steeve>\n 133, Green, Rd. <E Kustur> NY-56423 ;+1-541-914-3010!\n"
 
 phone(s, "1-541-754-3010") should return "Phone => 1-541-754-3010, Name => J Steeve, Address => 156 Alphand St."
 
@@ -107,3 +107,5 @@ Codewars stdout doesn't print part of a string when between < and >
                 line = sub("<" + name + ">|\+" + num, "", line)
                 address = " ".join(sub("[^a-zA-Z0-9\.-]", " ", line).split())
                 return "Phone => %s, Name => %s, Address => %s" % (num, name, address)
+
+ps: 正则真好用。
