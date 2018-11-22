@@ -12,6 +12,7 @@ tags:
 ---
 # Data Structure - 4.Recursion
 （初稿 待修改添加
+
 #### 4.6
 
 When a function is called in Python, a stack frame is allocated to handle the local variables of the function. When the function returns, the return value is left on top of the stack for the calling function to access.
@@ -46,6 +47,7 @@ getMid takes as arguments two endpoints and returns the point halfway between th
 You can learn all the details of the methods available in the turtle module by using help('turtle') from the Python prompt.
 
 #### 4.10
+
 crumble 瓦解 
 vanish 消失
 the legend said 传说
@@ -57,11 +59,11 @@ In this algorithm, there are four base cases to consider:
 2. The turtle has found a square that has already been explored. We do not want to continue exploring from this position or we will get into a loop.
 3. We have found an outside edge, not occupied by a wall. In other words we have found an exit from the maze.
 4. We have explored a square unsuccessfully in all four directions.
-
+---
 * __init__ Reads in a data file representing a maze, initializes the internal representation of the maze, and finds the starting position for the turtle.
 * drawMaze Draws the maze in a window on the screen.
 * updatePosition Updates the internal representation of the maze and changes the position of the turtle in the window.
 * isExit Checks to see if the current position is an exit from the maze.
-
+---
 def searchForm()
 Notice that this function takes three parameters: a maze object, the starting row, and the starting column. This is important because as a recursive function the search logically starts again with each recursive call.
