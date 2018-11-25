@@ -13,17 +13,16 @@ tags:
 # Data Structure 4.15. Discussion Questions (1)
 #### Call stack for the Tower of Hanoi problem
 ##### Description
-Draw a call stack for the Tower of Hanoi problem.
-Assume that you start with a stack of three disks.
-要求：用堆栈解决汉诺塔问题（盘子个数为3）
-缺陷：不能显示栈的内容 只能显示数目
-改进：可用list模拟栈
+Draw a call stack for the Tower of Hanoi problem. Assume that you start with a stack of three disks.  
+-要求：用堆栈解决汉诺塔问题（盘子个数为3）  
+-缺陷：不能显示栈的内容 只能显示数目  
+-改进：可用list模拟栈  
 
-My solution:
+##### My solution:
     from pythonds.basic.stack import Stack
 
-    	# print('请输入汉诺塔的层数')
-     	# N = int(input())
+    # print('请输入汉诺塔的层数')
+    # N = int(input())
     N = 3
     global A, B, C, step
     A = Stack()
