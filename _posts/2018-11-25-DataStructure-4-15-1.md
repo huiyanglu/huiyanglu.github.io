@@ -8,7 +8,7 @@ header-img: img/post-bg-cook.jpg
 catalog: true
 tags:
     - Python
-    - Codewars
+    - DataStructure
 ---
 # Data Structure 4.15. Discussion Questions (1)
 #### Call stack for the Tower of Hanoi problem
