@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Fix arithmetic progression
-subtitle:   20181127_5kyu_Fix_arithmetic_progression
+subtitle:   20181127_Codewars_5kyu_Fix_arithmetic_progression
 date:       2018-11-27
 author:     Huiyang_Lu
 header-img: img/post-bg-cook.jpg
