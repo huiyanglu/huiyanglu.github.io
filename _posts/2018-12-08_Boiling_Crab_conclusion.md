@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      2018-12-08 Boiling Crab总结
-subtitle:   20181208_Boiling_Crab
-date:       2018-12-08
+title:      一些感想
+subtitle:   20181008_somethingtosay
+date:       2018-10-08
 author:     Huiyang_Lu
 header-img: img/post-bg-cook.jpg
 catalog: true
 tags:
-    - Living
+    - living
 ---
 # 2018-12-08 Boiling Crab总结
 #### 2018年12月8日第一次尝试还原Boiling Crab
