@@ -7,7 +7,7 @@ author:     Huiyang_Lu
 header-img: img/post-bg-cook.jpg
 catalog: true
 tags:
-    - peace
+    - living
 ---
 # 一些感想
 
