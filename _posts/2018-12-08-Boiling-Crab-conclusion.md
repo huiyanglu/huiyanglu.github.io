@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      一些感想
-subtitle:   20181208_somethingtosay
+title:      2018-12-08 Boiling Crab总结
+subtitle:   20181208_Boiling_Crab_Conclusion
 date:       2018-12-08
 author:     Huiyang_Lu
 header-img: img/post-bg-cook.jpg
