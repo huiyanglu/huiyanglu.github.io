@@ -1,8 +1,8 @@
 ---
 layout:     post
 title:      一些感想
-subtitle:   20181008_somethingtosay
-date:       2018-10-08
+subtitle:   20181208_somethingtosay
+date:       2018-12-08
 author:     Huiyang_Lu
 header-img: img/post-bg-cook.jpg
 catalog: true
