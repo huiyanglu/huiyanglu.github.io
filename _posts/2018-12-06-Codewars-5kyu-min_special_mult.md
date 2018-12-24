@@ -15,6 +15,10 @@ tags:
 ##### Description  
 https://www.codewars.com/kata/56f1b3c94d0c330e4a000e95/solutions/python
   
+-简述：本题给定一列数，设计一个函数求出该列数的最小公倍数。若该列表中存在数字以外的项，则输出所有invalid项。  
+-思路：判断列表中每一项是不是数字，若不是则输出，若全为数字则求最小公倍数。  
+-难点：1 考虑数字的特殊情况如'-012'等，这种也是数字。  
+
 Given a certain array of integers, create a function that may give the minimum number that may be divisible for all the numbers of the array.
   
 This will be a harder version of Find The Minimum Number Divisible by integers of an array I
@@ -85,20 +89,6 @@ A simple brute force algorithm will not be able to pass the tests. Enjoy it!
     print(min_special_mult([16, 15, 23,None,'a','b', '-012']))
 
 ##### Given solutions
-    from fractions import gcd
-
-    def min_special_mult(arr):
-        try:
-            arr = [abs(int(x)) for x in arr if x is not None]
-            return reduce(lambda x,y: x*y/gcd(x,y), arr)
-        except ValueError:
-            invalids = [x for x in arr if isinstance(x, str) and not x.isdigit()]
-            if len(invalids) == 1:
-                return "There is 1 invalid entry: {}".format(invalids[0])
-            else:
-                return "There are {} invalid entries: {}".format(len(invalids), invalids)
-
----
     def min_special_mult(a):
         gcd=lambda a,b:gcd(b,a%b) if b else a
         lcm=lambda a,b:a*b/gcd(a,b)
@@ -142,3 +132,17 @@ A simple brute force algorithm will not be able to pass the tests. Enjoy it!
                 return 'There are {} invalid entries: {}'.format(
                     len(invalid_entries), invalid_entries)
         return reduce(lcm, xs)
+
+##### Points   
+1 Python3中math里面有个模块gcd直接求最小公倍数
+  
+2 使用reduce函数时需要from functools import reduce  
+reduce() 函数语法：  
+
+    reduce(function, iterable[, initializer])
+
+function -- 函数，有两个参数，可为lambda自定义的函数  
+iterable -- 可迭代对象  
+initializer -- 可选，初始参数  
+  
+3 None不算invalid情况，在全数字的情况中将None去掉再求  
