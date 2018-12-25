@@ -15,7 +15,10 @@ tags:
 ##### Description
 https://www.codewars.com/kata/5b77b030f0aa5c9114000024/solutions/python
 
-Description:  
+Description:   
+-简述：本题给定一个长度大于2的数列，转换list中的数字使其+1或-1或不变，使列表变成顺序数列，相邻数字的差值固定，如果无法做到，就返回-1，若可以，返回最少的改变次数。  
+-思路：前两个数分别+1/-1/不变，判断若后面每两个数之间的差都等于前两个数的差，则后面的数分别需要如何加减变化，当每个数的变化范围都在1之内，成立，遍历得到所有符合条件的变化，求变化次数总和的最小值。  
+
 In this Kata, we define an arithmetic progression as a series of integers in which the differences
 between adjacent numbers are the same.
   
@@ -47,7 +50,9 @@ solve([5,6,5,3,1,1]) == 4. It becomes [6,5,4,3,2,1]
 
     print(solve([24,21,14,10]))
   
+##### Points  
+1 any()和all()用法  
+any(x)判断x对象是否为空对象，如果都为空、0、false，则返回false，如果不都为空、0、false，则返回true  
+all(x)如果all(x)参数x对象的所有元素不为0、''、False或者x为空对象，则返回True，否则返回False  
+  
 ps: 今天太累了参考了given solution才做出来，脑子都不转了… 看书的时候不许吃麦丽素！！！
-
-12.1更
-今天出去浪了 妹更 明天补
