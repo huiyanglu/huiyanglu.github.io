@@ -15,6 +15,10 @@ tags:
 ##### Description
 https://www.codewars.com/kata/59280c056d6c5a74ca000149/solutions/python
 
+-简述：本题求解三元一次方程，输入为3个列表为各个方程的参数，输出一个列表为三个根的解。  
+-思路：用np.linalg.solve求解线性方程组，根据要求变换列表的形式。  
+-难点：如何用最少的语句变换参数形式
+
 We have 3 equations with 3 unknowns x, y, and z and we are to solve for these unknowns.
 
 Equations 4x -3y +z = -10, 2x +y +3z = 0, and -x +2y -5z = 17
@@ -40,3 +44,6 @@ and the result should be returned as an array like [1, 4, -2] (i.e. [x, y, z]).
         a = np.array([arr[:3] for arr in eq])
         b = np.array([arr[-1] for arr in eq])
         return [round(x) for x in np.linalg.solve(a,b)]
+
+##### Points:  
+1 解形如AX=b的线性方程组：np.linalg.solve(A,b)  
