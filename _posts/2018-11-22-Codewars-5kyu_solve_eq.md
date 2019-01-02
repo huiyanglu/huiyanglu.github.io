@@ -49,10 +49,10 @@ and the result should be returned as an array like [1, 4, -2] (i.e. [x, y, z]).
     import numpy as np
 
     def solve_eq(eq):
-    lst1 = [arr[:-1] for arr in eq]
-    lst2 = [arr[-1] for arr in eq]
-    rst = np.linalg.solve(lst1,lst2)
-    return [int(round(x)) for x in list(rst)]
+        lst1 = [arr[:-1] for arr in eq]
+        lst2 = [arr[-1] for arr in eq]
+        rst = np.linalg.solve(lst1,lst2)
+        return [int(round(x)) for x in list(rst)]
   
 ##### Points:  
 1 解形如AX=b的线性方程组：np.linalg.solve(A,b)  
