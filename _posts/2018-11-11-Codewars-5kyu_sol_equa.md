@@ -14,6 +14,11 @@ tags:
 #### Codewars Kata 49√
 ##### Description
 https://www.codewars.com/kata/554f76dca89983cc400000bb
+  
+-简述：给定一个整数n，找到所有满足x^2-4y^2=n的整数x和y  
+-思路：  
+1 找取值范围的极值，当y=0时，x取最大值为根号n  
+2 x^2 - 4 * y^2 = (x - 2y) * (x + 2y)  
 
 https://en.wikipedia.org/wiki/Diophantine_equation
 In mathematics, a Diophantine equation is a polynomial equation, usually with two or more unknowns, such that only the integer solutions are sought or studied.
@@ -50,15 +55,10 @@ x2 - 4 * y2 = (x - 2*y) * (x + 2*y)
     print(sol_equa(16))
 
 ##### Given solution
-    import math
     def sol_equa(n):
-        res = []
-        for i in range(1, int(math.sqrt(n)) + 1):
-            if n % i == 0:
-                j = n // i
-                if (i + j) % 2 == 0 and (j - i) % 4 == 0:
-                    x = (i + j) // 2
-                    y = (j - i) // 4
-                    res.append([x, y])
-                
-        return res
+        return [[(n/i + i)/2,(n/i - i)/4] for i in range(1, int(n ** 0.5) + 1)
+        if n % i == 0 and (n/i + i) % 2 ==0 and (n/i - i) % 4 ==0]
+
+##### Points  
+1 找到遍历的最小范围，使运行时间尽可能短
+
