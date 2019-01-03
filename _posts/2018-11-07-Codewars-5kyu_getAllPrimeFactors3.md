@@ -15,6 +15,10 @@ tags:
 ##### Description
 https://www.codewars.com/kata/53c93982689f84e321000d62/solutions/python
 
+-简述：本题给定一个数字，要求设计三个函数，分别求该数字的全部质因数、质因数以及其幂数、各质因数的乘积数组。  
+-思路：求出所有质因数，再按照要求的输出格式进行输出  
+-难点：1 避免time out的情况 2 避免步骤重复繁琐  
+
 You have to code a function getAllPrimeFactors which take an integer as parameter and return an array containing its prime decomposition by ascending factors, if a factors appears multiple time in the decomposition it should appear as many time in the array.
 
 Exemple: getAllPrimeFactors(100) returns [2,2,5,5] in this order.
@@ -44,27 +48,7 @@ if n=2, the function should respectively return [2], [[2],[1]], [2].
 The result for n=2 is normal. The result for n=1 is arbitrary and has been chosen to return a usefull result. The result for n=0 is also arbitrary but can not be chosen to be both usefull and intuitive. ([[0],[0]] would be meaningfull but wont work for general use of decomposition, [[0],[1]] would work but is not intuitive.)
 
 ##### My solution
-    from collections import defaultdict
-    def getUniquePrimeFactorsWithCount(n):
-        decomp = defaultdict(lambda:0)
-        i = 2
-        count = []
-        num = []
-        if str(n).isdigit():
-            if n == 1:
-                return [[1], [1]]
-            else:
-                while int(n) > 1:
-                    while n % i == 0:
-                        n /= i
-                        decomp[i] += 1
-                    i += 1
-                for key,value in decomp.items():
-                    count.append(value)
-                    num.append(key)
-                return [num,count]
-        else:
-            return [[],[]]
+    import collections
 
     def getAllPrimeFactors(n):
         dec = []
@@ -82,31 +66,21 @@ The result for n=2 is normal. The result for n=1 is arbitrary and has been chose
         else:
             return []
 
+    def getUniquePrimeFactorsWithCount(n):
+        c = collections.Counter(getAllPrimeFactors(n))
+        lst1 = []
+        lst2 = []
+        for key,value in c.items():
+            lst1.append(key)
+            lst2.append(value)
+        return [lst1,lst2]
+
     def getUniquePrimeFactorsWithProducts(n):
-        decomp = defaultdict(lambda:0)
-        i = 2
-        count = []
-        if str(n).isdigit():
-            if n == 1:
-                return [1]
-            else:
-                while n > 1:
-                    while n % i == 0:
-                        n /= i
-                        decomp[i] += 1
-                    i += 1
-                for key,value in decomp.items():
-                    count.append(key**value)
-                return count
-        else:
-            return []
+        c = getUniquePrimeFactorsWithCount(n)
+        return [c[0][i]**c[1][i] for i in range(0,len(c[0]))]
 
-    print(getUniquePrimeFactorsWithCount('a'))
-
-**Tips:**
-TypeError: 'builtin_function_or_method' object is not subscriptable
-错误原因：括号用错了 append后面应该是()
-
+    print(getUniquePrimeFactorsWithProducts(100))
+  
 ##### Given solutions
     import math
     import collections
@@ -122,7 +96,6 @@ TypeError: 'builtin_function_or_method' object is not subscriptable
       answer = sorted(answer)
       return answer
 
-
     def getUniquePrimeFactorsWithProducts(n):
       ch= getUniquePrimeFactorsWithCount(n)
       x= [a**b for (a,b) in zip (ch[0], ch[1])]
@@ -134,4 +107,10 @@ TypeError: 'builtin_function_or_method' object is not subscriptable
         e = [b for  (_,b) in c.items()]
         return [d,e]
 
+##### Points
+1 collections.Counter 计数 生成字典形式  
+或者Counter()直接计数  
+  
+2 报错TypeError: 'builtin_function_or_method' object is not subscriptable  
+错误原因：括号用错了 append后面应该是()  
 ---
