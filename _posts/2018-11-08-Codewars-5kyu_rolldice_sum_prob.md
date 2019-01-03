@@ -15,6 +15,10 @@ tags:
 ##### Description
 https://www.codewars.com/kata/56f78a42f749ba513b00037f
 
+-简述：本题是关于掷骰子的概率问题，给定骰子掷出的数字之和，以及骰子的个数n，求n个骰子掷出该数字的概率。  
+-思路：求n个骰子总共能掷出的情况总和，以及符合条件的情况，从而求得概率  
+-难点：1 骰子的个数是不确定的，如何确定符合条件的骰子情况.  
+  
 When we throw 2 classical dice (values on each side from 1 to 6) we have 36 (6 * 6) different results.
 
 We want to know the probability of having the sum of the results equals to 11. For that result we have only the combination of 6 and 5. So we will have two events: {5, 6} and {6, 5}
@@ -80,8 +84,6 @@ Create the function rolldice_sum_prob() for this calculation.
     
         return prob
 
----
-    import itertools as it
 
-    def rolldice_sum_prob(sum_, dice_amount):
-        return len( [ combination for combination in list( it.product( range(1,7) , repeat = dice_amount) ) if sum(combination) == sum_] ) / (6.0**dice_amount)
+##### Points  
+1 迭代  
