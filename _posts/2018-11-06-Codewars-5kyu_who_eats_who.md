@@ -13,7 +13,11 @@ tags:
 # The Hunger Games - Zoo Disaster!
 #### Codewars Kata 46√
 ##### Description
-https://www.codewars.com/kata/5902bc7aba39542b4a00003d/solutions/python
+https://www.codewars.com/kata/5902bc7aba39542b4a00003d/solutions/python  
+-简述：本题假设存在一个动物园，里面有多种的动物和植物（种类给定），根据给定的食物链规则，求出动物园里最后剩下哪种动物。  
+-思路：将食物链规则变为列表形式，检测动物园里的动物列表中任意相邻两个动物的组合是否为食物链规则列表中的一项，若是，则删掉被吃掉的那个动物，循环至最后输出剩下的动物。  
+-难点：1 如何分类讨论 2 如何防止time out
+  
 Story
 A freak power outage at the zoo has caused all of the electric cage doors to malfunction and swing open...
 
@@ -193,3 +197,6 @@ ps: 一开始用了几个for循环，果不其然超时了…有想过用dict，
                 idx += 1
 
         return res
+
+##### Points  
+1 从列表中删除被吃掉的动物时，不可以用remove，因为remove删除的是第一个该字符，pop对应索引  
