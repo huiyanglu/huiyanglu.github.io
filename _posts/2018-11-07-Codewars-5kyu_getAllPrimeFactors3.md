@@ -111,6 +111,4 @@ The result for n=2 is normal. The result for n=1 is arbitrary and has been chose
 1 collections.Counter 计数 生成字典形式  
 或者Counter()直接计数  
   
-2 报错TypeError: 'builtin_function_or_method' object is not subscriptable  
-错误原因：括号用错了 append后面应该是()  
----
+2 报错TypeError: 'builtin_function_or_method' object is not subscriptable   错误原因：括号用错了 append后面应该是()  
