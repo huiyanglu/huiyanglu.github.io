@@ -13,6 +13,11 @@ tags:
 # Phone Directory
 #### Codewars Kata 45√
 ##### Description
+https://www.codewars.com/kata/566584e3309db1b17d000027/solutions/python
+-简述：本题给定通讯录里的一些信息，包括人名、电话号码、地址。要求查找到所需的电话号码对应的人名和地址，考虑不止一人或未找到的情况。  
+-思路：运用正则表达式，分类讨论。  
+-难点：1 通讯录里的格式有些不一样的，要考虑周全。  
+  
 John keeps a backup of his old personal phone book as a text file. On each line of the file he can find the phone number (formated as +X-abc-def-ghij where X stands for one or two digits), the corresponding name between < and > and the address.
 
 Unfortunately everything is mixed, things are not always in the same order, lines are cluttered with non-alpha-numeric characters.
@@ -48,7 +53,7 @@ JavaScript random tests completed by @ matt c
 Note
 Codewars stdout doesn't print part of a string when between < and >
 
-
+  
 ##### My solution
     import re
 
@@ -101,11 +106,27 @@ Codewars stdout doesn't print part of a string when between < and >
         if dir.count("+" + num) > 1:
             return "Error => Too many people: " + num
         
-        for line in dir.splitlines():
+        for line in dir.splitlines():#按照换行符分割，每行为一项
             if "+" + num in line:
                 name = sub(".*<(.*)>.*", "\g<1>", line)
                 line = sub("<" + name + ">|\+" + num, "", line)
+                    #name和num用''代替，相当于删掉name和num
                 address = " ".join(sub("[^a-zA-Z0-9\.-]", " ", line).split())
+                    #除数字、字母、点、-以外的全部替换为' '空格
+                    #split()不带参数时以空格进行分割，带参数时以该参数进行分割
                 return "Phone => %s, Name => %s, Address => %s" % (num, name, address)
 
+##### Points  
+1 split()当不带参数时以空格进行分割，当代参数时，以该参数进行分割。  
+  
+2 \g<1>  
+In addition to character escapes and backreferences as described above, \g<name> will use the substring matched by the group named name, as defined by the (?P<name>...) syntax. \g<number> uses the corresponding group number; \g<2> is therefore equivalent to \2, but isn’t ambiguous in a replacement such as \g<2>0. \20 would be interpreted as a reference to group 20, not a reference to group 2 followed by the literal character '0'. The backreference \g<0> substitutes in the entire substring matched by the RE.
+https://docs.python.org/3.2/library/re.html
+  
+3 splitlines() 按照换行符分割，每行为一项
+  
+4 ‘|’代表左右表达式任意匹配一个
+  
+5 str.count(string) 求字符串中某个部分string出现的次数
+  
 ps: 正则真好用。
