@@ -115,18 +115,46 @@ Codewars stdout doesn't print part of a string when between < and >
                     #除数字、字母、点、-以外的全部替换为' '空格
                     #split()不带参数时以空格进行分割，带参数时以该参数进行分割
                 return "Phone => %s, Name => %s, Address => %s" % (num, name, address)
+  
+##### Improved solution:  
+    import re
 
-##### Points  
+    def phone(strng,num):
+        if strng.count('+'+num)==0:
+            return 'Error => Not found: ' + num
+        elif strng.count('+'+num)>1:
+            return 'Error => Too many people: ' + num
+        for line in strng.splitlines():
+            if '+' + num in line:
+                name1 = re.sub('.*<(.*)>.*', '\g<1>', line)
+                mod_url = re.sub('<' + name1 + '>|\+' + num, '', line)
+                x = re.split(r'[^A-Za-z0-9\-\.\']+', mod_url.strip())
+                add1 = ' '.join(x)
+                return 'Phone => %s, Name => %s, Address => %s' %(num,name1,add1)
+  
+##### Points    
 1 split()当不带参数时以空格进行分割，当代参数时，以该参数进行分割。  
   
 2 \g<1>  
-In addition to character escapes and backreferences as described above, \g<name> will use the substring matched by the group named name, as defined by the (?P<name>...) syntax. \g<number> uses the corresponding group number; \g<2> is therefore equivalent to \2, but isn’t ambiguous in a replacement such as \g<2>0. \20 would be interpreted as a reference to group 20, not a reference to group 2 followed by the literal character '0'. The backreference \g<0> substitutes in the entire substring matched by the RE.
-https://docs.python.org/3.2/library/re.html
+In addition to character escapes and backreferences as described above, \g<name> will use the substring matched by the group named name, as defined by the (?P<name>...) syntax. \g<number> uses the corresponding group number; \g<2> is therefore equivalent to \2, but isn’t ambiguous in a replacement such as \g<2>0. \20 would be interpreted as a reference to group 20, not a reference to group 2 followed by the literal character '0'. The backreference \g<0> substitutes in the entire substring matched by the RE.  
+https://docs.python.org/3.2/library/re.html  
   
-3 splitlines() 按照换行符分割，每行为一项
+3 splitlines() 按照换行符分割，每行为一项  
+splitlines()方法语法：  
+str.splitlines([keepends])  
+参数  
+keepends -- 在输出结果里是否保留换行符('\r', '\r\n', \n')，默认为 False，不包含换行符，如果为 True，则保留换行符。  
+https://ws4.sinaimg.cn/large/006tNc79ly1fyyi0fpbewj309506vdga.jpg
   
-4 ‘|’代表左右表达式任意匹配一个
+4 ‘|’代表左右表达式任意匹配一个  
   
-5 str.count(string) 求字符串中某个部分string出现的次数
+5 str.count(string) 求字符串中某个部分string出现的次数  
+count()方法语法：  
+str.count(sub, start= 0,end=len(string))  
+参数  
+sub -- 搜索的子字符串  
+start --字符串开始搜索的位置。默认为第一个字符,第一个字符索引值为0。  
+end --字符串中结束搜索的位置。字符中第一个字符的索引为0。默认为字符串的最后一个位置。 
+
   
 ps: 正则真好用。
