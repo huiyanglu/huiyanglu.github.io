@@ -13,7 +13,8 @@ tags:
 # Phone Directory
 #### Codewars Kata 45√
 ##### Description
-https://www.codewars.com/kata/566584e3309db1b17d000027/solutions/python
+https://www.codewars.com/kata/566584e3309db1b17d000027/solutions/python  
+
 -简述：本题给定通讯录里的一些信息，包括人名、电话号码、地址。要求查找到所需的电话号码对应的人名和地址，考虑不止一人或未找到的情况。  
 -思路：运用正则表达式，分类讨论。  
 -难点：1 通讯录里的格式有些不一样的，要考虑周全。  
@@ -24,11 +25,11 @@ Unfortunately everything is mixed, things are not always in the same order, line
 
 Examples of John's phone book lines:
 
-    "/+1-541-754-3010 156 Alphand_St. <J Steeve>\n"
+"/+1-541-754-3010 156 Alphand_St. <J Steeve>\n"
 
-    " 133, Green, Rd. <E Kustur> NY-56423 ;+1-541-914-3010!\n"
+" 133, Green, Rd. <E Kustur> NY-56423 ;+1-541-914-3010!\n"
 
-    "<Anastasia> +48-421-674-8974 Via Quirinal Roma\n"
+"<Anastasia> +48-421-674-8974 Via Quirinal Roma\n"
 
 Could you help John with a program that, given the lines of his phone book and a phone number returns a string for this number : "Phone => num, Name => name, Address => adress"
 
@@ -144,9 +145,9 @@ splitlines()方法语法：
 str.splitlines([keepends])  
 参数  
 keepends -- 在输出结果里是否保留换行符('\r', '\r\n', \n')，默认为 False，不包含换行符，如果为 True，则保留换行符。  
-https://ws4.sinaimg.cn/large/006tNc79ly1fyyi0fpbewj309506vdga.jpg
+![avatar](https://ws4.sinaimg.cn/large/006tNc79ly1fyyi0fpbewj309506vdga.jpg)  
   
-4 ‘|’代表左右表达式任意匹配一个  
+4 符号'\|’代表左右表达式任意匹配一个  
   
 5 str.count(string) 求字符串中某个部分string出现的次数  
 count()方法语法：  
