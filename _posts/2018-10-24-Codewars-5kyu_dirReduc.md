@@ -25,25 +25,25 @@ Your function will receive 2 arguments: a polynomial as a string, and a point to
   
 How I crossed the desert the smart way.
 The directions given to the man are, for example, the following:
-
+  
 ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"].
 or
-
+  
 { "NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST" };
 or (haskell)
-
+  
 [North, South, South, East, West, North, West]
 You can immediatly see that going "NORTH" and then "SOUTH" is not reasonable, better stay to the same place! So the task is to give to the man a simplified version of the plan. A better plan in this case is simply:
-
+  
 ["WEST"]
-or
-
+or 
+  
 { "WEST" }
 or (haskell)
-
+  
 [West]
 or (rust)
-
+  
 [WEST];
 Other examples:
 In ["NORTH", "SOUTH", "EAST", "WEST"], the direction "NORTH" + "SOUTH" is going north and coming back right away. What a waste of time! Better to do nothing.
@@ -83,5 +83,5 @@ Not all paths can be made simpler. The path ["NORTH", "WEST", "SOUTH", "EAST"] i
 2 python中快速进行多个字符替换的方法  
 要替换的字符数量不多时，可以直接链式replace()方法进行替换，效率高；
 如果要替换的字符数量较多，则推荐在 for 循环中调用 replace() 进行替换。
-
+  
   
