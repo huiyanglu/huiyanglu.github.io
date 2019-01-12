@@ -16,6 +16,10 @@ tags:
   
 https://www.codewars.com/kata/5ab23a9c1cec39668c000055/solutions/python  
 
+-简述：本题给定日期的格式，要求写出日期的常规表达方法dd.mm.yyyy  
+-思路：运用正则表达式，考虑各个月份的日期变化。  
+-难点：1 leap year闰年的特殊情况特殊表达  
+
 Your task is to write regular expression that validates gregorian date in format "DD.MM.YYYY"
 
 Correct date examples:
@@ -48,3 +52,16 @@ Notes:
         '\d\d([2468][048]|[13579][26]|0[48])|'     # leap years (mod 4)   
         '([2468][048]|[13579][26]|0[48])00'        # leap years (mod 400)
         ')))$' )
+
+##### Points
+1 
+![avatar](https://ws3.sinaimg.cn/large/006tNc79gy1fz4akmu5noj319r0u0e81.jpg)
+![avatar](https://ws4.sinaimg.cn/large/006tNc79gy1fz4akox019j31ga0u0qth.jpg)
+
+2 Gregorian calendar  
+Every year that is exactly divisible by four is a leap year, except for years that are exactly divisible by 100, but these centurial years are leap years if they are exactly divisible by 400. For example, the years 1700, 1800, and 1900 are not leap years, but the year 2000 is.  
+闰年：能被4或400整除且不能被100整除的年份（0001-9999）  
+
+3  
+![avatar](https://ws2.sinaimg.cn/large/006tNc79gy1fz4amx3o1bj30k60g30v8.jpg)
+![avatar](https://ws2.sinaimg.cn/large/006tNc79gy1fz4amzhdyhj30k507pdgs.jpg)
