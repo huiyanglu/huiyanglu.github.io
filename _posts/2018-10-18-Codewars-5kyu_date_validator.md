@@ -55,13 +55,13 @@ Notes:
 
 ##### Points
 1 
-![avatar](https://ws3.sinaimg.cn/large/006tNc79gy1fz4akmu5noj319r0u0e81.jpg)
-![avatar](https://ws4.sinaimg.cn/large/006tNc79gy1fz4akox019j31ga0u0qth.jpg)
+![analysis1](https://ws3.sinaimg.cn/large/006tNc79gy1fz4akmu5noj319r0u0e81.jpg)
+![analysis2](https://ws4.sinaimg.cn/large/006tNc79gy1fz4akox019j31ga0u0qth.jpg)
 
 2 Gregorian calendar  
 Every year that is exactly divisible by four is a leap year, except for years that are exactly divisible by 100, but these centurial years are leap years if they are exactly divisible by 400. For example, the years 1700, 1800, and 1900 are not leap years, but the year 2000 is.  
 闰年：能被4或400整除且不能被100整除的年份（0001-9999）  
 
 3  
-![avatar](https://ws2.sinaimg.cn/large/006tNc79gy1fz4amx3o1bj30k60g30v8.jpg)
-![avatar](https://ws2.sinaimg.cn/large/006tNc79gy1fz4amzhdyhj30k507pdgs.jpg)
+![points](https://ws2.sinaimg.cn/large/006tNc79gy1fz4amx3o1bj30k60g30v8.jpg)
+![points](https://ws2.sinaimg.cn/large/006tNc79gy1fz4amzhdyhj30k507pdgs.jpg)
