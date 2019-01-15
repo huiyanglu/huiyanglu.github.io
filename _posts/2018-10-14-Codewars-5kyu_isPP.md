@@ -13,7 +13,12 @@ tags:
 # What's a Perfect Power anyway?
 #### Codewars Kata 34√
 ##### Description   
-  
+https://www.codewars.com/kata/54d4c8b08776e4ad92000835  
+
+-简述：本题给定一个整数n，试判断该数字是否为perfect power，如果是，则存在两个整数m,k，使得m^k==n  
+-思路：遍历m和k，进行判断  
+-难点：1 for循环的范围不能超时  
+
 A perfect power is a classification of positive integers:
   
 In mathematics, a perfect power is a positive integer that can be expressed as an integer power of another positive integer. More formally, n is a perfect power if there exist natural numbers m > 1, and k > 1 such that mk = n.
@@ -37,4 +42,7 @@ isPP(5) => None
                 return [m, k]
         return None
   
-tips: 对m的范围设定很重要，否则会超时。
+##### Points  
+1 round() 方法返回浮点数x的四舍五入值。
+  
+2 对m的范围设定很重要，否则会超时。
