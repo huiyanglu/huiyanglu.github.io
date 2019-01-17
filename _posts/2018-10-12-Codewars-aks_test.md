@@ -12,7 +12,13 @@ tags:
 ---
 # Simple AKS Primality Test
 #### Codewars Kata 33√
-##### Description
+##### Description  
+ https://www.codewars.com/kata/5416d02d932c1df3a3000492/solutions/python  
+
+-简述：本题给定一个整数p，判断(x − 1)^p − (x^p − 1)的分解式是否能被p整除。   
+-思路：判断多项式的结果能否被p整除，取x的值为某个范围内。  
+-难点：1 time out  
+  
 The AKS algorithm for testing whether a number is prime is a polynomial-time test based on the following theorem:
 
 A number p is prime if and only if all the coefficients of the polynomial expansion of (x − 1)^p − (x^p − 1) are divisible by p.
@@ -32,23 +38,16 @@ The main problem of this algorithm is the big numbers emerging from binomial coe
 
 ##### My solution  
     def aks_test(p):
-        a = []
-        if p>=2:
-            for x in range(0,10):
-                m = (x-1)**p-(x**p-1)
-                if m%p ==0:
-                    a.append(x)
-            if len(a)==10:
-                return True
-            else:
+        for x in range(0,10):
+            m = (x-1)**p-(x**p-1)
+            if m%p:
                 return False
-        else:
-            return None
+        return p>1  
   
 ##### Given solutions  
     def aks_test(p):
         coeff = 1
-        for i in xrange(p / 2):
+        for i in xrange(p // 2):
             coeff = coeff * (p - i) / (i + 1)
             if coeff % p:
                 return False
@@ -74,3 +73,11 @@ The main problem of this algorithm is the big numbers emerging from binomial coe
             c *= (n - i)
             c /= i + 1
             yield c  
+
+##### Points:
+1 整除是'//'
+  
+2 可以直接返回return p>1进行判断，很巧妙
+  
+3 用系数的方法会减少遍历次数
+  
