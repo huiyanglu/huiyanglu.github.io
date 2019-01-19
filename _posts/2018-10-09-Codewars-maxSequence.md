@@ -13,6 +13,11 @@ tags:
 # Maximum subarray sum
 #### Codewars Kata 31√
 ##### Description
+https://www.codewars.com/kata/54521e9ec8e60bc4de000d6c  
+  
+-简述：本题给定一列数字，求出数字相加之和最大的子序列，返回最大的sum值。  
+-思路：从头到尾遍历数列，不断替换max的值，找到最大的sum  
+  
 The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence in an array or list of integers:
 
 maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4])
@@ -62,3 +67,6 @@ Empty list is considered to have zero greatest sum. Note that the empty list or 
             maxl = max(0, maxl + n)
             maxg = max(maxg, maxl)
         return maxg
+
+##### Points  
+1 我的方法遍历次数较多，虽然没有超时，但是不够快。  
