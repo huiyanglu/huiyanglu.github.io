@@ -13,6 +13,12 @@ tags:
 # Integer triangles
 #### Codewars Kata 30√
 ##### Description
+Link: https://www.codewars.com/kata/55db7b239a11ac71d600009d  
+
+-简述：本题设定一个三边长度均为整数且一个角为120度的三角形，给定三边之和的最大值，求出能够生成的所有三角形三边之长。  
+-思路：已知有一个角为120度的三角形三边公式，求出各边的长度范围，遍历求解。  
+-难点：1 如何准确定位各边长的长度范围，使得遍历范围最小。  
+  
 You have to give the number of different integer triangles with one angle of 120 degrees which perimeters are under or equal a certain value. Each side of an integer triangle is an integer value.
 
 give_triang(max. perimeter) --------> number of integer triangles,
@@ -73,3 +79,10 @@ give_triang(50) ----> 5 # (3, 5, 7), (5, 16, 19), (6, 10, 14), (7, 8, 13) and (9
         for m in range(int(p ** .5) + 1)
             for n in range(1, m)
                 if (m - n) % 3 and gcd(m, n) == 1)
+
+##### Points
+1 a^2=b^2+c^2+bc，其中a所对角为120度。  
+  
+2 combinations(range(1,per//3*2),2) 生成2个数 不相等 相加之和的范围为1至per//3*2  
+  
+3 120度的两条斜边一定不会相等，因为若为等腰三角形，则底边的值=斜边*根号3，必定不是整数。  
