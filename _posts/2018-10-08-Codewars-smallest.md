@@ -13,6 +13,12 @@ tags:
 # Find the smallest
 #### Codewars Kata 29√
 ##### Description
+Link: https://www.codewars.com/kata/573992c724fc289553000e95  
+
+-简述：本题给定一个多位数，要求移动其中任意一位数字，使得改变后的数最小，分别求数字变动前和变动后的索引。  
+-思路：分别将每一位数分别移动到其他各个位置上（包括其本身位置），将所有移动后的值放在一个列表中，求出最小值即为所求。  
+-难点：1 如何最快速地求出答案 2 如何遍历  
+
 You have a positive number n consisting of digits. You can do at most one operation: Choosing the index of a digit in the number, remove this digit at that index and insert it back to another place in the number.
 
 Doing so, find the smallest number you can get.
@@ -40,16 +46,19 @@ Have a look at "Sample Tests" to see the input and output in each language
 ##### My solution  
     def smallest(n):
         n2 = [i for i in str(n)]
-        x = []
-        for i,n in enumerate(n2):
+        min1, i0, j0 = n, 0, 0
+        for i,n in enumerate(n2):#i是索引 n是值
             ns = list(n2)
             ns.pop(i)
             for j in range(len(n2)):
                 x2 = list(ns)
                 x2.insert(j,n)
                 x2 = int(''.join(x2))
-                x.append([x2,i,j])
-        return min(x,key = lambda x:x[0])
+                if x2 < min1:
+                    min1,i0,j0=x2,i,j
+        return min1,i0,j0
+        
+    print(smallest(10000))    
 
 ##### Given solutions  
     def smallest(n):
@@ -87,3 +96,5 @@ Have a look at "Sample Tests" to see the input and output in each language
         if (mem[0] == -1): mem = [n, 0, 0]
         return mem
     
+##### Points  
+1 当题目只需要求极值时，不需要用到列表和append，只需要设定最大值的变量即可，会更简便。  
