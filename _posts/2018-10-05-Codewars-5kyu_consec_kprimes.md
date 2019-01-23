@@ -57,15 +57,15 @@ consec_kprimes(4, [10175, 10185, 10180, 10197]) => 3 because 10175-10185 and 101
         return count     
 
 ##### Given solutions
-def count_factors(n):
-    t, d, q, m = 2, 5, 2 + n % 2, int(n ** .5)
-    while q <= m and n % q:
-        t, d, q = 6-t, d+t, d
-    return q <= m and 1 + count_factors(n // q) or n > 1
+    def count_factors(n):
+        t, d, q, m = 2, 5, 2 + n % 2, int(n ** .5)
+        while q <= m and n % q:
+            t, d, q = 6-t, d+t, d
+        return q <= m and 1 + count_factors(n // q) or n > 1
 
-def consec_kprimes(k, arr):
-    factors = list(map(count_factors, arr))
-    return sum(left == k == right for left, right in zip(factors, factors[1:]))
+    def consec_kprimes(k, arr):
+        factors = list(map(count_factors, arr))
+        return sum(left == k == right for left, right in zip(factors, factors[1:]))
 
 ##### Points
 1 答案的list(map())和zip()函数用的太巧妙了 真是灵活运用  

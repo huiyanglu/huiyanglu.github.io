@@ -51,10 +51,10 @@ The order of the permutations in the output array does not matter
         return x        
 
 ##### Given solutions
-from itertools import permutations
+    from itertools import permutations
 
-def slogan_maker(arr):
-    return list(map(' '.join, permutations(dict(zip(arr, range(len(arr)))))))
+    def slogan_maker(arr):
+        return list(map(' '.join, permutations(dict(zip(arr, range(len(arr)))))))
 
 ##### Points
 1  

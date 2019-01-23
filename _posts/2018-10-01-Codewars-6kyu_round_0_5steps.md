@@ -48,7 +48,7 @@ solution(4.75) == 5
     def solution(n):
         return round(2 * n) / 2
 
-##### Points
+##### Points  
 1 round() 方法返回浮点数x的四舍五入值。  
 x -- 数字表达式。  
 n -- 表示从小数点位数，其中 x 需要四舍五入，默认值为 0。  
