@@ -13,6 +13,12 @@ tags:
 # Two Sum
 #### Codewars Kata 21√
 ##### Description
+Link: https://www.codewars.com/kata/52c31f8e6605bcc646000082  
+  
+-简述：本题给定一列整数和一个目标数字，要求设计一个函数，使得在该数列中找到两个不同的数字相加得到目标数字。  
+-思路：遍历一个数字，判断另一个数是否存在  
+-难点：1 如何降低时间复杂度  
+  
 Write a function that takes an array of numbers (integers for the tests) and a target number. It should find two different items in the array that, when added together, give the target value. The indices of these items should then be returned in an array like so: [index1, index2].
 
 For the purposes of this kata, some tests may have multiple answers; any valid solutions will be accepted.
@@ -75,3 +81,6 @@ Based on: http://oj.leetcode.com/problems/two-sum/
         # return all pairs of integers that sum to S  
         return sums  
     print(twoSum([3, 5, 2, -4, 8, 11], 7))  
+
+##### Points
+1 运用字典和enumerate()使得时间复杂度从O(n^2)降为O(n)
