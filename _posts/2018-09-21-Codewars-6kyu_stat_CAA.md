@@ -13,6 +13,12 @@ tags:
 # Statistics for an Athletic Association
 #### Codewars Kata 13√
 ##### Description
+Link: [stat_CAA](https://www.codewars.com/kata/55b3425df71c1201a800009c)  
+  
+-简述：本题以时|分|秒的数字形式给定一系列长跑运动员的时间成绩，求出其范围、平均值和中位数。  
+-思路：将数字形式转换为具体时间，求range average medium，然后再将他们转换为数字形式。  
+-难点：1 format中数字的表达形式  
+
 You are the "computer expert" of a local Athletic Association (C.A.A.). Many teams of runners come to compete. Each time you get a string of all race results of every team who has run. For example here is a string showing the individual results of a team of 5 runners:
 
 "01|15|59, 1|47|6, 01|17|20, 1|32|34, 2|3|17"
@@ -36,45 +42,40 @@ where hh, mm, ss are integers (represented by strings) with each 2 digits.
 Remarks:
 if a result in seconds is ab.xy... it will be given truncated as ab.
 if the given string is "" you will return ""
+  
+##### My solution   
+    def changetoHMS(x):
+        h1 = int(x // 3600)
+        m1 = int((x - 3600 * h1) // 60)
+        s1 = int(x - 3600 * h1 - 60 * m1)
+        return ' {h1:02d}|{m1:02d}|{s1:02d}'.format(**locals())
 
-##### My solution  
-    def change(x):
-        h1 = x // 3600
-        m1 = (x - 3600 * h1) // 60
-        s1 = x - 3600 * h1 - 60 * m1
-        return h1,m1,s1
+    def changetoTime(str):
+        b1 = str.split('|')
+        return int(b1[0]) * 3600 + int(b1[1]) * 60 + int(b1[2])
+
+    def getMedium(lst):
+        l = len(lst)
+        lst.sort()
+        if l % 2 == 0:
+            return (lst[l // 2] + lst[l // 2 - 1]) / 2
+        else:
+            return lst[l // 2]
 
     def stat(strg):
-        if strg =='': # 判断输入是否为数字
+        if strg =='':
             return ''
         else:
             s = strg.split(',')
             lst = []
-            sum = 0
-            l = len(s)
-            try:
-                int('')
-            except ValueError:
-                pass
-            for i in range(0,l):
-                b1 = s[i].split('|')  # 数列的第一个数将数字分隔开
-                c1 = int(b1[0]) * 3600 + int(b1[1]) * 60 + int(b1[2])
-                lst.append(c1)
-                sum += lst[i]
-            avg = sum//l
-            rge = max(lst)-min(lst)
-            if l%2 == 0:
-                lst.sort()
-                med = (lst[l//2]+lst[l//2-1])/2
-            else:
-                lst.sort() # 先排序 再求中位数
-                med = lst[l//2]
-            avgr = change(avg)
-            rger = change(rge)
-            medr = change(med)
-            return "Range: %02d|%02d|%02d "%rger+"Average: %02d|%02d|%02d "%avgr+"Median: %02d|%02d|%02d"%medr 
-      # 注意字符串输出的格式，善用+号
-      # 注意字母拼写不要出错  
+            for i in range(0,len(s)):
+                lst.append(changetoTime(s[i]))
+            avgr = changetoHMS(sum(lst)//len(lst))
+            rger = changetoHMS(max(lst)-min(lst))
+            medr = changetoHMS(getMedium(lst))
+            return 'Range:{rger} Average:{avgr} Median:{medr}'.format(**locals())
+
+    print(stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17"))
 
 ##### Given solutions  
     def stat(strg):
@@ -110,3 +111,12 @@ if the given string is "" you will return ""
         avg = format_time(get_average(times))
         mdn = format_time(get_median(times))
         return 'Range: {rng} Average: {avg} Median: {mdn}'.format(**locals())
+
+##### Points
+1 报错 ValueError: Unknown format code 'd' for object of type 'float'
+加入format中的参数不是整数，float无法用d表示。
+  
+2 format()函数讲解：[format()](http://www.runoob.com/python/att-string-format.html)  
+  
+3 运行时出现以下错误：TypeError: 'int' object is not callable
+报错处前面定义了一个与函数同名的变量，后期再遇到该函数时，则会报错。将变量改名即可。
