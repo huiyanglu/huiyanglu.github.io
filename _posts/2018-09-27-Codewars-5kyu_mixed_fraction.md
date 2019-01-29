@@ -13,7 +13,7 @@ tags:
 # Simple fraction to mixed number converter
 #### Codewars Kata 19√
 ##### Description
-Link: https://www.codewars.com/kata/556b85b433fb5e899200003f  
+Link: [mixed_fraction](https://www.codewars.com/kata/556b85b433fb5e899200003f)  
   
 -简述：本题旨在设计一个函数，将假分数转换为带分数的形式。  
 -思路：考虑多种正负数的情况，先求出带分数前面的数字。  

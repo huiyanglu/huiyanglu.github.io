@@ -13,7 +13,7 @@ tags:
 # A Rule of Divisibility by 13
 #### Codewars Kata 20√
 ##### Description
-Link: https://www.codewars.com/kata/564057bc348c7200bd0000ff  
+Link: [thirt](https://www.codewars.com/kata/564057bc348c7200bd0000ff)   
   
 -简述：本题给定10的次方数被13整除的余数列表1, 10, 9, 12, 3, 4，是一个循环数列，求任意多位数被13整除的remainder。  
 -思路：各位数字和余数列表分别相乘，若相加结果等于该数字，则为remainder，若不等则继续调用函数。  
