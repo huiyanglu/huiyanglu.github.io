@@ -13,6 +13,12 @@ tags:
 # IQ test
 #### Codewars Kata 3√
 ##### Description
+Link: [iq_test](https://www.codewars.com/kata/552c028c030765286c00007d)  
+  
+-简述：本题给定一列数字，要求找出其中最特殊的那一个（奇数中的偶数，偶数中的奇数）  
+-思路：用列表推导，找到奇数和偶数，判断求异  
+-难点：无  
+  
 Bob is preparing to pass IQ test. The most frequent task in this test is to find out which one of the given numbers differs from the others. Bob observed that one number usually differs from the others in evenness. Help Bob — to check his answers, he needs a program that among the given numbers finds one that is different in evenness, and return a position of this number.
 
 ! Keep in mind that your task is to help Bob solve a real IQ test, which means indexes of the elements start from 1 (not 0)
@@ -22,25 +28,16 @@ iq_test("2 4 7 8 10") => 3 // Third number is odd, while the rest of the numbers
 iq_test("1 2 1 1") => 2 // Second number is even, while the rest of the numbers are odd
 
 ##### My solution  
-    def iq_test(lines):
-      even = []
-          odd = []
-         integers = lines.split(' ')
-         # 分割每个数字，分别加引号，成为一个数组[]
-          print(integers)
-          for num in integers:
-                if int(num) % 2 == 0:
-                    even.append(num)
-                else:
-                    odd.append(num)
-          if len(even)>1 and len(odd)==1:
-                spec = odd[0]
-                return integers.index(spec)+1
-                # index生成该数字的索引，即在数列中的位置，从0开始
-          elif len(odd)>1 and len(even)==1:
-                spec = even[0]
-                return integers.index(spec)+1
-    print(iq_test('1 3 5 7 8'))  
+  def iq_test(lines):
+      integers = lines.split(' ')
+      even = [num for num in integers if int(num)%2==0]
+      if len(even)==1:
+          spec = even[0]
+          return integers.index(spec)+1
+          # index生成该数字的索引，即在数列中的位置，从0开始
+      else:
+          spec = [num for num in integers if int(num)%2!=0]
+          return integers.index(spec[0])+1
 
 ##### Given solutions
     def iq_test(numbers):
@@ -68,3 +65,6 @@ iq_test("1 2 1 1") => 2 // Second number is even, while the rest of the numbers 
                 return indexEven
           else:
                 return indexOdd  
+
+##### Points  
+1 该题目要求较简单，仅考虑数字的奇偶性。  

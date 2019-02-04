@@ -13,6 +13,12 @@ tags:
 # Product of consecutive Fib numbers
 #### Codewars Kata 11√
 ##### Description
+Link: [productFib](https://www.codewars.com/kata/5541f58a944b85ce6d00006a)
+  
+-简述：本题给定一个数字，问它是哪两个fibonacci数字的乘积  
+-思路：已知fibonacci数字是如何得到的，根据其进行求解  
+-难点：while循环简便  
+  
 The Fibonacci numbers are the numbers in the following integer sequence (Fn):
 
 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, ...
@@ -87,3 +93,6 @@ http://oeis.org/A000045
 **↑↑↑while循环，非常巧妙了**  
   
 今日心得：心态崩了…答案也太简洁了…我想得好复杂_(:з」∠)_
+
+##### Points  
+1 while循环直接求解  
