@@ -129,3 +129,4 @@ tags:
 	        login()
 
 
+GitHub: [豆瓣登录代码](https://github.com/huiyanglu/LearnWebCrawler/blob/master/shoot_login/requests_login_douban.py)
